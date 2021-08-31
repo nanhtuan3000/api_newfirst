@@ -1,0 +1,38 @@
+Bước 1: Mở Command Prompt với quyền Admin
+Bạn cần mở cửa sổ của Command Promt với quyền Quản trị, tại nút Start phía dưới góc trái màn hình, gõ vào ô tìm kiếm từ khóa “Command promt”, click chuột phải chọn “Run as administrator”
+
+Active office 2019 cmd
+Bước 2: Mở vị trí thư mục cài đặt Office trên máy tính
+Mục đích của bước này để xác định vị trí thư mục đang chứa file cài đặt của Office 2019.
+
+Đường dẫn mặc định thư mục chứa file Office 2019 của bạn thường sẽ là “%ProgramFiles%\Microsoft Office\Office16” hoặc “%ProgramFiles(x86)%\Microsoft Office\Office16”
+
+Nếu bạn không chắc chắn, đừng lo lắng, dán 2 đoạn code dưới đây vào Command Promt, quá trình xác định sẽ đươc tự động hóa:
+
+Dán đoạn code bên dưới vào Command Promt-> Nhấn Enter:
+cd /d %ProgramFiles%\Microsoft Office\Office16
+cd /d %ProgramFiles(x86)%\Microsoft Office\Office16
+
+Active office 2019 cmd 
+Bước 3: Chuyển đổi giấy phép bán lẻ sang “bán sỉ“
+Nếu Office 2019 của bạn được tải từ trang chủ của Microsoft thì bước này là bắt buộc. Vì vậy nếu ngược lại, bạn có thể bỏ qua bước này nếu muốn.
+
+Mục đích của bước. 3 là để chuyển đổi từ phần mềm bán lẻ sang gói phần mềm bán sỉ (theo cách hiểu nôm na của mình 🙂
+
+Dán đoạn code bên dưới vào Command Promt-> Nhấn Enter:
+for /f %x in ('dir /b ..\root\Licenses16\ProPlus2019VL*.xrm-ms') do cscript ospp.vbs /inslic:”..\root\Licenses16\%x”
+
+huong dan cai dat va kich hoat microsoft office 2019 4
+Bước 4: Kích hoạt Office bằng cách sử dụng mã sản phẩm KMS
+Bạn cần đảm bảo máy tính đang kết nối bạn trong suốt quá trình chạy lệnh bên dưới:
+
+Dán đoạn code bên dưới vào Command Promt-> Nhấn Enter:
+cscript ospp.vbs /setprt:1688
+cscript ospp.vbs /unpkey:6MWKP >nul
+cscript ospp.vbs /inpkey:NMMKJ-6RK4F-KMJVX-8D9MJ-6MWKP
+cscript ospp.vbs /sethst:kms8.msguides.com
+cscript ospp.vbs /act
+
+Chờ 1 lát để quá trình xử lý hoàn tất, đây là kết quả nếu mọi thứ suôn sẻ, bạn sẽ thấy trên cửa sổ Command Promt hiện kết quả:
+
+Command Promt Result:
